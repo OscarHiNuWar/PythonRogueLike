@@ -14,29 +14,31 @@ if TYPE_CHECKING:
     from engine import Engine
     from entity import Entity
 
+numeroDePisos = 7
+
 max_items_by_floor = [
     (1, 1),
     (4, 2),
 ]
 
 max_monsters_by_floor = [
-    (1, 2),
-    (4, 3),
-    (6, 5),
+    (4, 8),
+    (8, 12),
+    (10, 20),
 ]
 
 item_chances: Dict[int, List[Tuple[Entity, int]]] = {
     0: [(entity_factories.health_potion, 35)],
-    2: [(entity_factories.confusion_scroll, 10)],
-    4: [(entity_factories.lightning_scroll, 25), (entity_factories.sword, 5)],
-    6: [(entity_factories.fireball_scroll, 25), (entity_factories.chain_mail, 15)],
+    3: [(entity_factories.confusion_scroll, 10), (entity_factories.bronze_dagger, 5)],
+    6: [(entity_factories.lightning_scroll, 25), (entity_factories.sword, 1), (entity_factories.bronze_dagger, 15)],
+    7: [(entity_factories.fireball_scroll, 25), (entity_factories.chain_mail, 15), (entity_factories.silver_dagger, 10)],
 }
 
 enemy_chances: Dict[int, List[Tuple[Entity, int]]] = {
     0: [(entity_factories.orc, 80)],
-    3: [(entity_factories.troll, 15)],
-    5: [(entity_factories.troll, 30)],
-    7: [(entity_factories.troll, 60)],
+    3: [(entity_factories.troll, 5)],
+    5: [(entity_factories.troll, 15)],
+    7: [(entity_factories.troll, 30)],
 }
 
 def get_max_value_for_floor(
@@ -109,8 +111,9 @@ class RectangularRoom:
 
 
 def place_entities(room: RectangularRoom, dungeon: GameMap, floor_number: int,) -> None:
+    totalNumero = numeroDePisos-floor_number
     number_of_monsters = random.randint(
-        0, get_max_value_for_floor(max_monsters_by_floor, floor_number)
+        0, get_max_value_for_floor(max_monsters_by_floor, totalNumero)
     )
     number_of_items = random.randint(
         0, get_max_value_for_floor(max_items_by_floor, floor_number)

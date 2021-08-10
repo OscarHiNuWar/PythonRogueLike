@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 python-tcod
-
+savegame.sav
 # C extensions
 *.so
 
