@@ -87,3 +87,13 @@ class Fighter(BaseComponent):
 
     def take_damage(self, amount: int) -> None:
         self.hp -= amount
+
+    ''' Make natural HP Regen '''
+    '''def regen(self, turns: int) -> None:
+        if turns == 5
+            hp_regen = self.hp + 1
+
+        if hp_regen > self.map_hp:
+            hp_regen = self.max_hp
+
+        return hp_regen'''
