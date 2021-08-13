@@ -170,3 +170,5 @@ class LightningDamageConsumable(Consumable):
             self.consume()
         else:
             raise Impossible("No enemy is close enough to strike.")
+
+#class SpearRangedDamage

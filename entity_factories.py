@@ -6,7 +6,7 @@ from components.inventory import Inventory
 from components.level import Level
 from entity import Actor, Item
 
-from random import randint
+from random import randrange
 
 player = Actor(
     char="@",
@@ -62,7 +62,7 @@ potion = Item(
     char="!",
     color=(127, 0, 255),
     name="Health Potion",
-    consumable=consumable.HealingPotion(amount=randint(4,10)),
+    consumable=consumable.HealingPotion(amount=randrange(4,10)),
 )
 lightning_scroll = Item(
     char="~",
@@ -97,6 +97,13 @@ gold_dagger = Item(
     color=(0, 191, 254), 
     name="Gold Dagger", 
     equippable=equippable.Dagger(extra_power=3)
+)
+
+spear = Item(
+    char="|",
+    color=(10,145,100),
+    name="Spear",
+    equippable=equippable.Spear(extra_power=0, range=2)
 )
 
 sword = Item(
