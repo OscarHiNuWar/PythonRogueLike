@@ -122,7 +122,7 @@ class ActionWithDirection(Action):
 
     @property
     def blocking_entity(self) -> Optional[Entity]:
-        """Return the blocking entity at this actions destination.."""
+        """Return the blocking entity at this actions destination."""
         return self.engine.game_map.get_blocking_entity_at_location(*self.dest_xy)
 
     @property
@@ -195,3 +195,4 @@ class PotionAction(Action):
         """Return the actor at this actions destination."""
         return self.engine.game_map.get_actor_at_location(*self.target_xy)
 
+#class RangedMeeleAction(ActionWithDirection):
